@@ -294,7 +294,7 @@ function firstAnimal() {
   let hungerBar = 0;
   // pet dieing
   let hungerloveInterval = setInterval(function () {
-    if (hungerBar === 10 || loveBar === 0) {
+    if (hungerBar === 100 || loveBar === 0) {
       div.replaceChildren();
       div.style.backgroundColor = "red";
       div.style.borderRadius = "0px";
