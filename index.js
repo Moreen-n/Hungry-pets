@@ -236,8 +236,10 @@ function displayRandomMessage() {
     "gone too soon.",
     "rest with Angels.",
     "Untill we meet again",
-    "died because of hunger",
+    "died because of hunger or lack of love",
     "lived a happy life, now dead",
+    "he left his paw prints on our hearts.",
+    "Now in the place where he wont be suffering",
   ];
   const messages = document.createElement("p");
   messages.textContent = `${
