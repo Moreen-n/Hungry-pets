@@ -195,6 +195,35 @@ const petNames = [
 ];
 
 const petsContainer = document.querySelector("#pets-container");
+function shuffleArray(pets) {
+  // Make a copy of the original array to avoid modifying it directly
+  const shuffledArray = pets.slice();
+
+  // Fisher-Yates shuffle algorithm
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+
+  return shuffledArray;
+}
+
+function shufflename(petNames) {
+  // Make a copy of the original array to avoid modifying it directly
+  const shuffledNames = petNames.slice();
+
+  // Fisher-Yates shuffle algorithm
+  for (let i = shuffledNames.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledNames[i], shuffledNames[j]] = [shuffledNames[j], shuffledNames[i]];
+  }
+
+  return shuffledNames;
+}
+
+const shuffledNames = shufflename(petNames);
+
+const shuffledArray = shuffleArray(pets);
 
 function displayRandomMessage() {
   let deadmessages = [
@@ -227,7 +256,7 @@ function firstAnimal() {
   div.className = "pets-frame";
 
   const emoji = document.createElement("p");
-  emoji.textContent = pets[currentIndex];
+  emoji.textContent = shuffledArray[currentIndex];
   emoji.style.fontSize = "50px";
   emoji.style.marginTop = "0px";
   emoji.style.marginBottom = "5px";
@@ -238,7 +267,7 @@ function firstAnimal() {
   });
 
   const name = document.createElement("p");
-  name.textContent = petNames[nameIndex];
+  name.textContent = shuffledNames[nameIndex];
   name.style.fontWeight = "bold";
   name.style.marginTop = "5px";
   name.style.fontSize = "20px";
@@ -261,7 +290,7 @@ function firstAnimal() {
   progressBar.style.width = "0% ";
   progressBarContainer.appendChild(progressBar);
   let hungerBar = 0;
-
+  // pet dieing
   let hungerloveInterval = setInterval(function () {
     if (hungerBar === 100 || loveBar === 0) {
       div.replaceChildren();
@@ -269,7 +298,7 @@ function firstAnimal() {
       div.appendChild(emoji);
       let messages = displayRandomMessage();
       div.appendChild(messages);
-      clearInterval(hungerloveInterval);
+      clearInterval(hungerloveInterval); //will stop the hungerbar
       clearInterval(intervalId); //stoping the function from generating cards
     } else {
       hungerBar += 1;
