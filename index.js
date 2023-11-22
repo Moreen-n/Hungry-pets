@@ -296,6 +296,8 @@ function firstAnimal() {
       div.replaceChildren();
       div.style.backgroundColor = "red";
       div.style.borderRadius = "0px";
+      div.style.height = "200px";
+      div.style.textAlign = "center";
       div.appendChild(emoji);
       let messages = displayRandomMessage();
       div.appendChild(messages);
@@ -326,6 +328,7 @@ function firstAnimal() {
 
   const button = document.createElement("button");
   button.style.marginTop = "10px";
+  button.style.height = "28px";
   button.textContent = "Feed me 🥣";
 
   button.addEventListener("click", function () {
