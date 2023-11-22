@@ -295,6 +295,7 @@ function firstAnimal() {
     if (hungerBar === 100 || loveBar === 0) {
       div.replaceChildren();
       div.style.backgroundColor = "red";
+      div.style.borderRadius = "0px";
       div.appendChild(emoji);
       let messages = displayRandomMessage();
       div.appendChild(messages);
