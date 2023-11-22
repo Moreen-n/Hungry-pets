@@ -298,7 +298,7 @@ function firstAnimal() {
       div.replaceChildren();
       div.style.backgroundColor = "red";
       div.style.borderRadius = "0px";
-      div.style.height = "200px";
+      div.style.height = "250px";
       div.style.textAlign = "center";
 
       div.appendChild(emoji);
